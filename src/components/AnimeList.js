@@ -11,8 +11,8 @@ const AnimeList = () =>{
 
 
     useEffect(() => {
-        axios.get("https://cdn.animenewsnetwork.com/encyclopedia/reports.xml?id=155").then((result) =>{
-            setResults(result.anime.name)
+        axios.get("https://kitsu.io/api/edge/anime?filter[categories]=adventure").then((result) =>{
+            setResults(result.data)
         })
     },[term])
 
