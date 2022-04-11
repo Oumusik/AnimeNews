@@ -1,12 +1,17 @@
+import React from "react";
 
 
 
-function App() {
-  return (
-    <div >
-      Hello Bohdan
-    </div>
-  );
+class App extends React.Component {
+  
+
+  render(){
+    return (
+      <div >
+        Hello Bohdan
+      </div>
+    );
+  }
 }
 
 export default App;
