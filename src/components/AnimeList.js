@@ -2,9 +2,12 @@ import {setState, setEffect, useState, useEffect} from "react";
 
 import React from "react";
 import axios from "axios";
+import { useFrame } from 'react-frame-component';
 
+function Foo (props) {
+    const { window, document } = useFrame();
 
-
+}
 const AnimeList = () =>{
     const [term, setTerm] = useState("")
     const [results, setResults] = useState([])
@@ -22,27 +25,24 @@ const AnimeList = () =>{
             setResults(result.data.data.documents)
         })
     },[term])
-
+    
     const renderedResults = results.map(result =>{
         if(result.titles.en){
             return( 
                 <li key={result.anilist_id}>
                     <b>{result.titles.en}</b>
-                    <img src={result.cover_image}/>
+                    <br/><img src={result.cover_image}/>
                 </li>)
         }
-        
             return( 
                 <li key={result.anilist_id}>
                     <b>{result.titles.rj}</b>
-                    <img src={result.cover_image}/>
+                    <br/><img src={result.cover_image}/>
                 </li>  
             )
         
     })
     
-
-
     return (
         <div className="ui container">
                     <div className="ui form">
