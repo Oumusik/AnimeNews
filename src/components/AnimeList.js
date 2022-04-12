@@ -1,19 +1,14 @@
-import {setState, setEffect, useState, useEffect} from "react";
+import { useState, useEffect} from "react";
 
 import React from "react";
 import axios from "axios";
-import { useFrame } from 'react-frame-component';
 
-function Foo (props) {
-    const { window, document } = useFrame();
-
-<<<<<<< HEAD
+import style from "./style.css"
 
 
 
-=======
-}
->>>>>>> 1934eb3db8af6419c0cb2f4ac7844e60fa480e89
+
+
 const AnimeList = () =>{
     const [term, setTerm] = useState("")
     const [results, setResults] = useState([])
@@ -31,14 +26,24 @@ const AnimeList = () =>{
             setResults(result.data.data.documents)
         })
     },[term])
+
     
+
+
     const renderedResults = results.map(result =>{
+        
+        
         if(result.titles.en){
             return( 
-                <li key={result.anilist_id}>
-                    <b>{result.titles.en}</b>
-                    <br/><img src={result.cover_image}/>
-                </li>)
+                <div className="ui segment big">
+                    <li key={result.anilist_id}>
+                        <b>{result.titles.en}</b>
+                        <div className="paragraph"></div>
+                        <img src={result.cover_image}/>
+                        <br/>
+                        <a className="right" href={result.trailer_url}>Trailer</a>
+                    </li>
+                </div>)
         }
             return( 
                 <div className="ui segment">
@@ -56,9 +61,9 @@ const AnimeList = () =>{
     
     return (
         <div className="ui container">
-                    <div className="ui form">
+                    <div className="ui form space">
                         <div className="field">
-                            <label>Wpisz hasło Wikipedii</label>
+                            <label>Enter Anime Title</label>
                             <input type="text" className="input" onChange={e => setTerm(e.target.value)} value={term}/>
                         </div>
                     </div>
