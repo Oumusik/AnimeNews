@@ -25,17 +25,27 @@ const AnimeList = () =>{
     const renderedResults = results.map(result =>{
         if(result.titles.en){
             return( 
-                <li key={result.anilist_id}>
-                    <b>{result.titles.en}</b>
-                    <img src={result.cover_image}/>
-                </li>)
+                <div className="ui segment">
+                    <li key={result.anilist_id}>
+                        <b>{result.titles.en}</b>
+                        <br/>
+                        <img src={result.cover_image}/>
+                        <br/>
+                        <a href={result.trailer_url}>Trailer</a>
+                    </li>
+                </div>)
         }
         
             return( 
-                <li key={result.anilist_id}>
-                    <b>{result.titles.rj}</b>
-                    <img src={result.cover_image}/>
-                </li>  
+                <div className="ui segment">
+                    <li key={result.anilist_id}>
+                        <b>{result.titles.rj}</b>
+                        <br/>
+                        <img src={result.cover_image}/>
+                        <br/>
+                        <a href={result.trailer_url}>Trailer</a>
+                    </li> 
+                </div> 
             )
         
     })
@@ -46,7 +56,7 @@ const AnimeList = () =>{
         <div className="ui container">
                     <div className="ui form">
                         <div className="field">
-                            <label>Wpisz hasło Wikipedii</label>
+                            <label>Wpisz Anime Title</label>
                             <input type="text" className="input" onChange={e => setTerm(e.target.value)} value={term}/>
                         </div>
                     </div>
