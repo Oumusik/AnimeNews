@@ -5,6 +5,8 @@ import axios from "axios";
 
 
 
+
+
 const AnimeList = () =>{
     const [term, setTerm] = useState("")
     const [results, setResults] = useState([])
@@ -44,7 +46,7 @@ const AnimeList = () =>{
                         <br/>
                         <img src={result.cover_image}/>
                         <br/>
-                        <a href={result.trailer_url}>Trailer</a>
+                        <a className="right" href={result.trailer_url}>Trailer</a>
                     </li> 
                 </div> 
             )
@@ -61,8 +63,8 @@ const AnimeList = () =>{
                             <input type="text" className="input" onChange={e => setTerm(e.target.value)} value={term}/>
                         </div>
                     </div>
-                <b>{renderedResults}</b>   
-        </div>
+                <b>{renderedResults}</b> 
+            </div>
     )
 
 }
