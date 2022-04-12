@@ -35,24 +35,26 @@ const AnimeList = () =>{
         
         if(result.titles.en){
             return( 
-                <div className="ui segment big">
+                <div className="ui segment">
                     <li key={result.anilist_id}>
-                        <b>{result.titles.en}</b>
+                        <h1 className="big">{result.titles.en}</h1>
                         <div className="paragraph"></div>
                         <img src={result.cover_image}/>
                         <br/>
                         <a className="right" href={result.trailer_url}>Trailer</a>
+                        <p className="desc">{result.descriptions.en}</p>
                     </li>
                 </div>)
         }
             return( 
-                <div className="ui segment">
+                <div className="ui segment ">
                     <li key={result.anilist_id}>
-                        <b>{result.titles.rj}</b>
+                        <h1 className="big">{result.titles.rj}</h1>
                         <br/>
                         <img src={result.cover_image}/>
                         <br/>
                         <a className="right" href={result.trailer_url}>Trailer</a>
+                        <p className="desc">{result.descriptions.en}</p>
                     </li> 
                 </div> 
             )
