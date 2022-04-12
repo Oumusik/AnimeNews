@@ -2,12 +2,7 @@ import {setState, setEffect, useState, useEffect} from "react";
 
 import React from "react";
 import axios from "axios";
-import { useFrame } from 'react-frame-component';
 
-function Foo (props) {
-    const { window, document } = useFrame();
-
-}
 const AnimeList = () =>{
     const [term, setTerm] = useState("")
     const [results, setResults] = useState([])
