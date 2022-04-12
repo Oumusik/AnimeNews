@@ -2,11 +2,18 @@ import {setState, setEffect, useState, useEffect} from "react";
 
 import React from "react";
 import axios from "axios";
+import { useFrame } from 'react-frame-component';
+
+function Foo (props) {
+    const { window, document } = useFrame();
+
+<<<<<<< HEAD
 
 
 
-
-
+=======
+}
+>>>>>>> 1934eb3db8af6419c0cb2f4ac7844e60fa480e89
 const AnimeList = () =>{
     const [term, setTerm] = useState("")
     const [results, setResults] = useState([])
@@ -24,21 +31,15 @@ const AnimeList = () =>{
             setResults(result.data.data.documents)
         })
     },[term])
-
+    
     const renderedResults = results.map(result =>{
         if(result.titles.en){
             return( 
-                <div className="ui segment">
-                    <li key={result.anilist_id}>
-                        <b>{result.titles.en}</b>
-                        <br/>
-                        <img src={result.cover_image}/>
-                        <br/>
-                        <a href={result.trailer_url}>Trailer</a>
-                    </li>
-                </div>)
+                <li key={result.anilist_id}>
+                    <b>{result.titles.en}</b>
+                    <br/><img src={result.cover_image}/>
+                </li>)
         }
-        
             return( 
                 <div className="ui segment">
                     <li key={result.anilist_id}>
@@ -53,13 +54,11 @@ const AnimeList = () =>{
         
     })
     
-
-
     return (
         <div className="ui container">
                     <div className="ui form">
                         <div className="field">
-                            <label>Wpisz Anime Title</label>
+                            <label>Wpisz hasło Wikipedii</label>
                             <input type="text" className="input" onChange={e => setTerm(e.target.value)} value={term}/>
                         </div>
                     </div>
