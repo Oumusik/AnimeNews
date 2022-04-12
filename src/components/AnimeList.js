@@ -11,6 +11,7 @@ const AnimeList = () =>{
 
 
     useEffect(() => {
+
         axios.get(`https://api.aniapi.com/v1/anime?title=${term}`, {
             headers:{
                 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjE1ODUiLCJuYmYiOjE2NDk2ODE0NTcsImV4cCI6MTY1MjI3MzQ1NywiaWF0IjoxNjQ5NjgxNDU3fQ.JCE3Z29TGLLIzdDVF0V2kr4bMQNFwgI_qGnd3Gm1t9U',
